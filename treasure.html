@@ -37,6 +37,10 @@
 
         <div id="help" class="col-sm row item bg-info">Help report</div>
 
+        <div class="container text-center">
+            <button class="btn btn-info" type="submit" onclick="resetGame()">Reset</button>
+        </div>
+<br>
         <div class="row">
             <div class="col-sm-2"><img src="treasure chest.jpg" alt="treasure chest" class="img-fluid" height="100" width="100" id="chest0" onclick="check(0)"></div>
             <div class="col-sm-2"><img src="treasure chest.jpg" alt="treasure chest" class="img-fluid" height="100" width="100" id="chest1" onclick="check(1)"></div>
@@ -80,7 +84,6 @@
     </div>
     </div>
     <script>
-
         const ids = ["chest0", "chest1", "chest2", "chest3", "chest4", "chest5", "chest6", "chest7",
         "chest8", "chest9", "chest10", "chest11", "help", "chest13", "chest14", "chest15", "chest16",
         "chest17", "chest18", "chest19", "chest20", "chest21", "chest22", "chest23", "chest24"]
@@ -89,7 +92,6 @@
         let score = 0
         let lastCheck = 12
         let treasureLocation = 18
-
     
         function check(position) {
       image = document.getElementById(ids[position])
@@ -104,7 +106,6 @@
       document.getElementById("score").innerHTML = "Score is " + score
       lastCheck = position;
   }
-
   function help() {
       lastCheck_row = parseInt(lastCheck / 5)
       lastCheck_column = parseInt(lastCheck % 5)
@@ -132,9 +133,33 @@
           document.getElementById("help").innerHTML = "Sorry, no help available"
       }
   }
-        </script>
-    </div><br>
+        
+        function resetGame() {
+            treasureLocation = Math.floor(Math.random() * 24)
+            while(treasureLocation == 12) {
+                treasureLocation = Math.floor(Math.random() * 24)
+            }
+            chestCount = 0
+            score = 0
+            document.getElementById("chests").innerHTML = "Number of chests checked is zero"
+            document.getElementById("score").innerHTML = "Score is unknown"
+            document.getElementById("help").innerHTML = "Help report"
+            for(let i = 0; i < 24; i++) {
+                if(i != 12) {
+                    document.getElementById(ids[i]).src = "treasure chest.jpg"
+                }
+            }
+        }
+      </script>
+      <div class="container">
+        <ul class="pager">
+            <li class="next">
+                <a href="reaction.html">reaction timer</a>
+            </li>
+        </ul>
 
+      </div>
+    </div><br>
    
 </body>
 </html>
