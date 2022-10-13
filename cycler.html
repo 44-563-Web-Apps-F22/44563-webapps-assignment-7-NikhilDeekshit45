@@ -58,13 +58,15 @@
     
     <script>
         function makeNewDiv() {
-            let element = document.createElement("div")
-            let value = document.getElementById("inputElement").value
+            let element =  document.createElement("div")
 
-            element.innerHTML = value
-            element.className = "cycler"
+            let value =  document.getElementById("inputElement").value
 
-            let container = document.getElementById("target")
+            element.innerHTML   = value
+            element.className   = "cycler"
+
+            let container =  document.getElementById("target")
+
             container.appendChild(element)
         }
     </script>
@@ -101,6 +103,12 @@
                 }
             }
     </script>
+    <div class="container">
+        <ul class="pager">
+            <li class="previous">
+                <a href="reaction.html">Reaction Timer</a>
+            </li>
+        </ul>
     
 </body>
 </html>
